@@ -20,6 +20,7 @@ router.get("/:id", async (req, res) => {
 router.post("/", async (req, res) => {
   try {
     const { eventId, name, email, seats } = req.body;
+
     if (!eventId || !name || !email || !seats) {
       return res.status(400).json({ message: "All fields are required" });
     }
@@ -43,4 +44,7 @@ router.post("/", async (req, res) => {
     res.status(500).json({ message: "Internal Server Error" });
   }
 });
+
+
+
 export default router;
