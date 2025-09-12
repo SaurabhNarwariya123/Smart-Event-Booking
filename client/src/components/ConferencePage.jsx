@@ -11,7 +11,7 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
  import BookingPage from "../pages/BookingPage";
 
 import test1 from "../assets/Dr.Marcus.png"
-import test2 from "../assets/jonathan.png"
+import test2 from "../assets/Jonathan.png"
 import test3 from  "../assets/Daniel.png"
 import test4 from   "../assets/Ahmed.png"
 import  video from  "../assets/videoframe.png"
