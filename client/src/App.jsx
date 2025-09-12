@@ -13,7 +13,8 @@ function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
-        <Navbar />
+        {/* <ConferencePage /> */}
+         {/* <Navbar /> */}
         <main className="flex-grow">
           <Routes>
             {/* Conference page as home */}
@@ -24,8 +25,9 @@ function App() {
             <Route path="/booking/:id" element={<BookingPage />} />
             <Route path="/admin" element={<AdminDashboard />} />
           </Routes>
+          {/* <Footer /> */}
         </main>
-        <Footer />
+        
       </div>
     </Router>
   );

@@ -1,3 +1,6 @@
+
+//  mongo db connection ke liye 
+
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -12,3 +15,5 @@ export const connectDB = async () => {
     process.exit(1);
   }
 };
+
+

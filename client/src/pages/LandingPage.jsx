@@ -2,11 +2,15 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useNavigate } from "react-router-dom";
 import backgroundImg from "../assets/background.png";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   const navigate = useNavigate();
 
   return (
+    <div> 
+      <Navbar />
     <div className="relative min-h-[calc(100vh-140px)] w-full overflow-hidden bg-gray-900 text-white">
       <motion.div
         className="absolute inset-0 bg-cover bg-center"
@@ -42,6 +46,8 @@ const LandingPage = () => {
           Explore Events
         </motion.button>
       </div>
+    </div>
+          <Footer />
     </div>
   );
 };
