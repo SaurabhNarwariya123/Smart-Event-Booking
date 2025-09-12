@@ -101,9 +101,9 @@
 
 
 import express from "express";
-import upload from "../db/multer.js";      // ✅ multer memory storage
-import cloudinary from "../db/cloudinary.js"; // ✅ Cloudinary instance
-import db from "../db/db.js"; // ✅ MySQL connection
+import upload from "../config/multer.js";      // ✅ multer memory storage
+import cloudinary from "../config/cloudinary.js"; // ✅ Cloudinary instance
+import db from "../config/db.js"; // ✅ MySQL connection
 
 const router = express.Router();
 

@@ -65,7 +65,7 @@
 
 
 import express from "express";
-import db from "../db/db.js"; // ✅ MySQL connection
+import db from "../config/db.js"; // ✅ MySQL connection
 
 const router = express.Router();
 

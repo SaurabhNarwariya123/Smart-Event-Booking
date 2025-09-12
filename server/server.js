@@ -30,6 +30,7 @@
 // import eventRoutes from "./routes/events.js";
 // import bookingRoutes from "./routes/bookings.js";
 // import path from "path";
+// import db from "../config/db.js"
 
 // // ✅ Load .env
 // dotenv.config();
@@ -54,13 +55,15 @@
 //   console.log(`Server running on http://localhost:${PORT}`);
 // });
 
+import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
 import eventRoutes from "./routes/events.js";
 import bookingRoutes from "./routes/bookings.js";
-import { db } from "./db/db.js"; // MySQL connection
+import db from "./config/db.js"; // ✅ correct path
 
 dotenv.config();
+
 const app = express();
 
 app.use(cors());
@@ -71,15 +74,16 @@ app.use("/api/bookings", bookingRoutes);
 
 const PORT = process.env.PORT || 3000;
 
-// Optional: test MySQL connection before starting
-db.execute("SELECT 1+1 AS result")
-  .then(() => {
-    console.log("✅ MySQL Connected!");
-    app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-  })
-  .catch((err) => {
-    console.error("❌ MySQL connection failed:", err);
-  });
+// ✅ Test MySQL Connection
+try {
+  const [rows] = await db.execute("SELECT 1+1 AS result");
+  console.log("✅ MySQL Connected!");
+  app.listen(PORT, () =>
+    console.log(`🚀 Server running on http://localhost:${PORT}`)
+  );
+} catch (err) {
+  console.error("❌ MySQL connection failed:", err);
+}
 
 
 

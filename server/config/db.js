@@ -39,4 +39,5 @@ db.connect((err) => {
   }
 });
 
-export default db; // ✅ Default export for ESM
+export default db;
+ // ✅ Default export for ESM
