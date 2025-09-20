@@ -1,24 +1,24 @@
-// import express from "express";
-// import cors from "cors";
-// import dotenv from "dotenv";
-// import { connectDB } from "./db/db.js";
-// import eventRoutes from "./routes/events.js";
-// import bookingRoutes from "./routes/bookings.js";
+import express from "express";
+import cors from "cors";
+import dotenv from "dotenv";
+import { connectDB } from "./config/db.js";
+import eventRoutes from "./routes/events.js";
+import bookingRoutes from "./routes/bookings.js";
 
-// dotenv.config();
-// const app = express();
+dotenv.config();
+const app = express();
 
-// app.use(cors());
-// app.use(express.json());
+app.use(cors());
+app.use(express.json());
 
-// app.use("/api/events", eventRoutes);
-// app.use("/api/bookings", bookingRoutes);
+app.use("/api/events", eventRoutes);
+app.use("/api/bookings", bookingRoutes);
 
-// connectDB().then(() => {
-//   app.listen(process.env.PORT, () =>
-//     console.log(`Server running on port ${process.env.PORT}`)
-//   );
-// });
+connectDB().then(() => {
+  app.listen(process.env.PORT, () =>
+    console.log(`Server running on port ${process.env.PORT}`)
+  );
+});
 
 
 
@@ -55,35 +55,38 @@
 //   console.log(`Server running on http://localhost:${PORT}`);
 // });
 
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import eventRoutes from "./routes/events.js";
-import bookingRoutes from "./routes/bookings.js";
-import db from "./config/db.js"; // ✅ correct path
 
-dotenv.config();
 
-const app = express();
 
-app.use(cors());
-app.use(express.json());
+// import express from "express";
+// import cors from "cors";
+// import dotenv from "dotenv";
+// import eventRoutes from "./routes/events.js";
+// import bookingRoutes from "./routes/bookings.js";
+// import db from "./config/db.js"; // ✅ correct path
 
-app.use("/api/events", eventRoutes);
-app.use("/api/bookings", bookingRoutes);
+// dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+// const app = express();
 
-// ✅ Test MySQL Connection
-try {
-  const [rows] = await db.execute("SELECT 1+1 AS result");
-  console.log("✅ MySQL Connected!");
-  app.listen(PORT, () =>
-    console.log(`🚀 Server running on http://localhost:${PORT}`)
-  );
-} catch (err) {
-  console.error("❌ MySQL connection failed:", err);
-}
+// app.use(cors());
+// app.use(express.json());
+
+// app.use("/api/events", eventRoutes);
+// app.use("/api/bookings", bookingRoutes);
+
+// const PORT = process.env.PORT || 3000;
+
+// // ✅ Test MySQL Connection
+// try {
+//   const [rows] = await db.execute("SELECT 1+1 AS result");
+//   console.log("✅ MySQL Connected!");
+//   app.listen(PORT, () =>
+//     console.log(`🚀 Server running on http://localhost:${PORT}`)
+//   );
+// } catch (err) {
+//   console.error("❌ MySQL connection failed:", err);
+// }
 
 
 
